@@ -113,6 +113,9 @@ pub struct CheckoutSession {
     /// The URL the customer will be directed to after the payment or
     /// subscription creation is successful.
     pub success_url: String,
+
+    /// The URL to the Checkout Session.
+    pub url: Option<String>,
 }
 
 impl Object for CheckoutSession {
