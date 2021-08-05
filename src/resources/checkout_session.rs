@@ -91,6 +91,9 @@ pub struct CheckoutSession {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub setup_intent: Option<Expandable<SetupIntent>>,
 
+    /// The status of the payment.
+    pub payment_status: CheckoutPaymentStatus,
+
     /// Shipping information for this Checkout Session.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub shipping: Option<Shipping>,
@@ -182,6 +185,15 @@ pub struct ShippingAddressCollection {
     ///
     /// Unsupported country codes: `AS, CX, CC, CU, HM, IR, KP, MH, FM, NF, MP, PW, SD, SY, UM, VI`.
     pub allowed_countries: Vec<ShippingAddressCollectionAllowedCountries>,
+}
+
+/// An enum representing the payment status
+#[derive(Copy, Clone, Debug, Deserialize, Serialize, Eq, PartialEq)]
+#[serde(rename_all = "snake_case")]
+pub enum CheckoutPaymentStatus {
+    Paid,
+    Unpaid,
+    NoPaymentRequired
 }
 
 /// An enum representing the possible values of an `CheckoutSession`'s `locale` field.
