@@ -59,6 +59,8 @@ pub enum EventType {
     CheckoutAsyncPaymentFailed,
     #[serde(rename = "checkout.session.completed")]
     CheckoutSessionCompleted,
+    #[serde(rename = "checkout.session.expired")]
+    CheckoutSessionExpired,
     #[serde(rename = "coupon.created")]
     CouponCreated,
     #[serde(rename = "coupon.deleted")]
